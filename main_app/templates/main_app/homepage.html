@@ -1,19 +1,150 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Homepage</title>
-</head>
-<body>
-	<div>
-	    <h1><a href="/">Homepage</a></h1>
+{% extends 'main_app/base.html' %}
+
+{% block content %}
+<div id = "container">   
+	<!-- The mast head -->
+	<div id = "masthead">
+
+		<!-- The Site Header -->
+		<div class = "header-content row">
+			<div class = "col-lg-6 col-md-5 col-sm-12">	
+				<!-- The left side of the page which introduces the game -->
+				<div id = "introduction">
+					<div class = "header">
+						<h1>
+							Welcome to Assholes Anonymous!
+						</h1>
+
+						<h3 id = "subtext"><i class = "fa fa-beer"></i> Drinking reccomended, not required. </h3>	
+
+						<!-- The learn more button -->
+						<div class = "row add-margin">
+							<span id = "learnmore" class = "custom-button">Learn More</span>
+						</div>
+					</div>	
+				</div>					
+			</div>
+
+			<div class = "col-lg-6 col-md-7 col-sm-12">
+				<div id = "featuredCards">
+					<!-- You can pass this a default style tag if you want -->
+					<canvas id = "trending-cards">
+						<img src="static/imgs/cards/1.png" class = "featured">
+						<img src="static/imgs/cards/2.png" class = "featured">
+						<img src="static/imgs/cards/3.png" class = "featured">
+						<img src="static/imgs/cards/4.png" class = "featured">
+						<img src="static/imgs/cards/5.png" class = "featured">
+						<img src="static/imgs/cards/6.png" class = "featured">
+					</canvas>
+				</div>
+			</div>
+		</div>
 	</div>
 
-	{% for post in posts %}
-	    <div>
-	    	<h1><a href="">{{ post.title }}</a></h1>
-	        <p>published: {{ post.published_date }}</p>
-	        <p>{{ post.text|linebreaksbr }}</p>
-	    </div>
-	{% endfor %}
-</body>
-</html>
+	<!-- An Overview of the Game -->
+	<div id = "overview">
+		<div class = "row">
+			<!-- The instructions for the game -->
+			<div class = "header col-lg-8">
+				<h1>So, what's this shit about?</h1>
+
+				<div class = "explanation">
+					<p>
+						Nobody cares about age restrictions anymore, but technically 18+ 
+						<br>
+						Get together 3 or more players 
+					</p>
+
+					<p>
+						Begin by circling yourselves in the way that you would at an AA meeting (Yes, we know it's fucked up).
+						Then, draw a card and remember, don't show it! 
+					</p>
+
+					<p>
+						Start by saying "Hello, my name is _______."
+						<br>
+						Everyone else will say "Hello ________."
+					</p>
+
+					<p>
+						Begin by telling your story <b>without</b> giving away any part of the card, <b>GET INTO IT</b> this game
+						is about role playing, have some fun! Act as if you just can't get it out, choke
+						on your words, tear up a little (but keep it silly), do whatever it takes to get them to start ushering you on. Everyone else 
+						will start asking you questions and make guesses, once someone has guessed an answer that is either exactly or word for word what is written on the card, pass it to that player. They get to keep the card and now have to draw a card of their own. The game is over when you decide it's over and the winner is the one with the most cards. 
+					</p>
+
+					<p>	
+						Remember to have fun and party on! Drinking is acceptable, not required.
+					</p>
+				</div>
+				<span id = "learnmore" class = "custom-button back small">Go Back</span>
+				<span id = "cards" class = "custom-button small">Check Out Some Cards</span>
+			</div>
+			
+			<!-- The deck image -->
+			<div class = "img col-lg-4">
+				<div class = "display">
+					<img class = "display-imgs" src="static/imgs/deck.png">	
+					<img class = "display-imgs" src="static/imgs/layed.png">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- The animation for the featured cards -->
+<script type="text/paperscript" canvas = "trending-cards">
+	
+	// How much the image is scaled
+	var imageScale = 0.25;
+	var imgs = $(".featured");
+	var speed = 0.5
+	var start = new Point(-1 * (imgs[0].width * imageScale)/2, (imgs[0].height * imageScale)/2);
+	var imageWidth = imgs[0].width * imageScale;
+	var imageHeight = imgs[0].height * imageScale;
+	var rowMargin = 25
+	
+	var iterator;
+	for (count = 0; count < imgs.length; count ++)
+	{
+		imgs[count] = new Raster(imgs[count]);
+		imgs[count].scale(imageScale);
+
+		if (count < imgs.length/2)
+		{
+			imgs[count].position = new Point(imageWidth/2 + (count * 3 * imageWidth/2),imageHeight/2);
+		}
+
+		else
+		{
+			imgs[count].position = new Point(imageWidth/2 + ((count - imgs.length/2) * 3 * imageWidth/2),
+				imageHeight/2 * 3 + rowMargin);
+		}
+	}
+	
+
+	// Have cards that move through like a conveyor belt 
+	// If you mouse over one, they all stop moving and the moused over item scales so it's easier to view
+
+	function onFrame(event)
+	{
+		for (img = 0; img < imgs.length; img ++)
+		{
+			imgs[img].position += new Point(speed,0);
+
+			if (imgs[img].position.x > view.viewSize.width + (imgs[img].width * imageScale)/2)
+			{
+				if (imgs[img].position.y == start.y)
+				{
+					imgs[img].position = new Point(start.x,start.y * 3 + rowMargin);
+				}
+
+				else
+				{
+					imgs[img].position = start;
+				}
+			}
+		}
+	}
+</script>
+
+{% endblock %}

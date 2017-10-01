@@ -1,0 +1,86 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assholes Anonymous</title>
+	<!-- Paperscript -->
+	<script type="text/javascript" src = "{% static 'js/lib/paper-full.min.js' %}"></script>
+
+	<!-- Font Awesome -->
+	<script src="https://use.fontawesome.com/6bcd70ac1a.js"></script>
+
+	<!-- Jquery -->
+	<script type="text/javascript" src = "{% static 'js/lib/jquery-3.2.1.min.js' %}"></script>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script type="text/javascript" src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
+
+	<!-- Font -->
+	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
+
+</head>
+<body>
+	<!-- Navigation -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+	    <!-- Navbar Container -->
+	    <div class="container-fluid">
+
+	        <!-- Navbar Header [contains both toggle button and navbar brand] -->
+	        <div class="navbar-header">
+	            <!-- Toggle Button [handles opening navbar components on mobile screens]-->
+	            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded = "false">
+	                <i class="glyphicon glyphicon-align-center"></i>
+	            </button>
+
+	            <!-- Navbar Brand -->
+	            <a href="#" class="navbar-brand">
+	                <img id = "logo" src="{% static 'imgs/Logo Mint.png' %}" alt = "Assholes Anonymous">
+	            </a>
+	        </div>
+
+
+	        <!-- Navbar Collapse [contains navbar components such as navbar menu and forms ] -->
+	        <div class="collapse navbar-collapse" id = "main-menu">
+	            <!-- Navbar Menu -->
+	            <ul class="nav navbar-nav navbar-left col-lg-auto">
+	                <li>
+	                    <a href="#" id = "overviewButton">How Does It Work?</a>
+	                </li>
+	                <li>
+	                    <a href="#">Cards</a>
+	                </li>
+	               
+	                <li>
+	                    <a href="#">Create</a>
+	                </li>
+	                <li>
+	                    <a href="#">Community</a>
+	                </li>
+	            </ul>
+
+	            <!-- Navbar Menu -->
+	            <ul class="nav navbar-nav navbar-right col-lg-auto">
+	                <li>
+	                    <a href="#">Login</a>
+	                </li>
+	                <li>
+	                    <a href="#">Register</a>
+	                </li>
+	            </ul>
+	        </div>
+	    </div>
+	</nav>	
+	
+	<!-- The dynamic content -->
+	{% block content %}
+	{% endblock %}
+
+	<script type="text/javascript" src = "{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

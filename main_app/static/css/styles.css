@@ -1,0 +1,155 @@
+:root
+{
+	 --themeColor: #22d091 ;
+	 --textColor:white;
+}
+
+
+html
+{
+	margin:0px;
+	height:100%;
+}
+
+body
+{
+	background: var(--themeColor) /*#00a167*/;
+	color:var(--textColor);
+	margin:0;
+	height:100%;
+	font-family: 'Quicksand', sans-serif;
+	overflow: hidden;
+}
+
+/*The heading and masthead*/
+
+/*Controls the entire masthead*/
+#masthead
+{
+	margin-top:100px;
+}
+
+.header-content h1
+{
+	font-weight: bold;
+	font-size:64px;
+	margin-top:0;
+}
+
+#introduction
+{
+	height:575px;
+}
+
+
+.header
+{
+	padding-top:50px;
+	text-align:center;
+}
+
+.header-content #subtext
+{
+	margin-top:10%;
+	font-size:28px;
+	display:inline-block;
+	border-bottom:2px solid var(--textColor);
+	padding-bottom:8px;
+}
+
+.custom-button
+{
+	color:var(--textColor);
+	border:3px solid var(--textColor);
+	padding:10px;
+	cursor:pointer;
+	text-decoration: none;
+	font-size:36px;
+	font-weight:bold;
+}
+
+.custom-button:hover
+{
+	transition: 0.3s;
+	color:var(--themeColor);
+	background:var(--textColor);
+}
+
+.row .add-margin
+{
+	margin-top:125px;
+}
+
+
+#trending-cards
+{
+	width:95%;
+	height:575px;
+}
+
+/*The Overview*/
+#overview
+{
+	margin-top:1%;
+	display:none;
+}
+
+#overview h1
+{
+	font-size:64px;
+	font-weight:bold;
+}
+
+#overview p
+{
+	margin-top:15px;
+	font-size:20px;
+	padding-left:5%;
+	padding-right:5%;
+}
+
+.explanation
+{
+	margin-top:28px;
+	text-align: left;
+}
+
+.small
+{
+	margin-top:10px;
+	margin-left:25px;
+	display:inline-block;
+	font-size:24px;
+}
+
+.display-imgs
+{
+	width:90%;
+}
+
+.display
+{
+	margin-top:10px;
+	padding-top:3%;
+	padding-bottom:15%;
+}
+
+
+@media (max-width:1050px)
+{
+	body
+	{
+		overflow: visible;
+	}
+	#introduction
+	{
+		height:auto;
+	}
+
+	#featuredCards
+	{
+		display:none;
+	}
+}
+
+
