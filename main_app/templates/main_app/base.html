@@ -21,6 +21,10 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
 
+	<!-- Dynamic Stylesheets -->
+	{% block stylesheets %}
+	{% endblock %}
+
 	<!-- Font -->
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
 
@@ -39,7 +43,7 @@
 	            </button>
 
 	            <!-- Navbar Brand -->
-	            <a href="#" class="navbar-brand">
+	            <a href="{% url 'homepage' %}" class="navbar-brand">
 	                <img id = "logo" src="{% static 'imgs/Logo Mint.png' %}" alt = "Assholes Anonymous">
 	            </a>
 	        </div>
@@ -57,7 +61,7 @@
 	                </li>
 	               
 	                <li>
-	                    <a href="#">Create</a>
+	                    <a href="{% url 'Create Card' %}">Create</a>
 	                </li>
 	                <li>
 	                    <a href="#">Community</a>
