@@ -1,9 +1,32 @@
-body
+#container
+{
+	margin-top:75px;
+	background-color:red;
+	height:100%;
+}
+
+#instructions
 {
 	background:red;
 }
 
-h1
+#formContainer
 {
-	margin-top: 100px;
+	margin-top:20px;
+}
+
+#form
+{
+	background:blue;
+}
+
+#cardCreator
+{
+	background:green;
+}
+
+.row
+{
+	margin-left:0px;
+	margin-right:0px;
 }

@@ -5,5 +5,32 @@
 {% endblock %}
 
 {% block content %}
-	<h1>Welcome to the Create A Card Page<h1>
+	<!-- Highlight the button -->
+	<script type="text/javascript">
+		window.onload = function()
+		{
+			$("#createCard").addClass("active");
+		}
+	</script>
+
+	<div id = "container">
+		<h1>Welcome to the Create A Card Page<h1>
+		<div class = "row">
+			<div id = "instructions" class = "row">
+				<p>These are some instructions!</p>
+			</div>
+
+			<div id = "formContainer" sclass = "row">
+				<div id = "form" class = "col-lg-6">
+					<p>This will be the form!</p>
+				</div>
+
+				<div id = "cardCreator" class = "col-lg-6">
+					<p>This will be where the card creator is!</p>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
 {% endblock %}

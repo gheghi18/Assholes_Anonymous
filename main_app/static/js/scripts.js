@@ -12,7 +12,7 @@ var logo = $("#logo");
 // Buttons
 var backButton = $(".back");
 var overviewButton = $("#overviewButton");
-var learnMoreButton = $("#learnmore")
+var learnMoreButton = $("#learnmore");
 
 // The time it takes to complete an animation
 var animationTiming = 500;
