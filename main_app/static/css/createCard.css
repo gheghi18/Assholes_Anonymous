@@ -1,32 +1,53 @@
 #container
 {
 	margin-top:75px;
-	background-color:red;
 	height:100%;
 }
 
-#instructions
-{
-	background:red;
-}
-
-#formContainer
-{
-	margin-top:20px;
-}
-
-#form
-{
-	background:blue;
-}
-
+/*The visual java script display of the card*/
 #cardCreator
 {
-	background:green;
+	
+}
+
+/*The form used to create a card*/
+#card-form
+{
+	color:black;
+}
+
+/*The text input tag for the form*/
+#card-input
+{
+	width:75%;
+}
+
+#submit-button
+{
+	display:block;
 }
 
 .row
 {
 	margin-left:0px;
 	margin-right:0px;
+}
+
+/*The text area input for the cards creation*/
+.card-text-area
+{
+	color:red;
+}
+
+h1
+{
+	margin-top:0px;
+	font-weight:bold;
+}
+
+p
+{
+	font-size:24px;
+	text-align:left;
+	font-weight:normal;
 }

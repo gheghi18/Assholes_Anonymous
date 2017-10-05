@@ -9,9 +9,11 @@ class Card(models.Model) :
 	author = models.ForeignKey('auth.User')
 	text = models.CharField(max_length = 400)
 	created_date = models.DateTimeField(default=timezone.now)
+	published = False
 	published_date = models.DateTimeField(blank=True,null=True)
 
 	def publish(self) :
+		published = True
 		self.published_date = timezone.now()
 		self.save()
 

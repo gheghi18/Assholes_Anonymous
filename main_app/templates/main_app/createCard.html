@@ -14,15 +14,22 @@
 	</script>
 
 	<div id = "container">
-		<h1>Welcome to the Create A Card Page<h1>
 		<div class = "row">
-			<div id = "instructions" class = "row">
-				<p>These are some instructions!</p>
-			</div>
-
-			<div id = "formContainer" sclass = "row">
+			<div id = "formContainer" class = "row">
 				<div id = "form" class = "col-lg-6">
-					<p>This will be the form!</p>
+					<div id = "instructions">
+						<h1>Welcome to the Create a Card Page!<h1>
+						<p>
+							Have an idea for a hilarious, disgusting or just plain fucked up card? Use the card creator below to create a card.
+							Once you hit sumbit, your card will be added to your personal collection and will also be publically displayed in the Community Collection. Get writing!
+						</p>
+					</div>
+					
+					<form id = "card-form" action = "" method="post">
+						{% csrf_token %}
+						{{ form }}
+    					<input id = "submit-button" type="submit" value="Submit" />
+					</form>
 				</div>
 
 				<div id = "cardCreator" class = "col-lg-6">
@@ -32,5 +39,11 @@
 			
 		</div>
 	</div>
+
+	<!-- Use the auto size imported script -->
+	<script type="text/javascript" src = "../../static/js/lib/autosize-master/dist/autosize.js"></script>
+	<script type="text/javascript">
+		autosize(document.querySelectorAll('textarea'));
+	</script>
 	
 {% endblock %}
