@@ -13,7 +13,7 @@ html
 
 body
 {
-	background: var(--themeColor) /*#00a167*/;
+	background: var(--themeColor);
 	color:var(--textColor);
 	margin:0;
 	height:100%;
