@@ -14,6 +14,7 @@ var y = 0;
 
 // Text variables
 dynamicText.value = textarea.attr("placeholder");
+textarea.keyup(getText);
 
 // Set the styles
 ctx.strokeStyle = '#000000';
@@ -29,5 +30,3 @@ function getText()
 	text = textarea.val();
 	dynamicText.value = textarea.val();
 }
-
-setInterval(getText,100);
