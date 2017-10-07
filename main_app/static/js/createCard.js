@@ -1,10 +1,8 @@
-
 // Document Hooks
 var canvas = $("#dynamic-creator")[0];
 var textarea = $(".card-text-area");
 var dynamicText = $("#dynamic-textarea")[0];
 var ctx = canvas.getContext("2d");
-ctx.font = "30px Arial";
 
 // Image dimensions
 var baseImageWidth = 709;
@@ -14,10 +12,9 @@ var height = canvas.height;
 var x = 0;
 var y = 0;
 
-
 // Text variables
 dynamicText.value = textarea.attr("placeholder");
-textarea.keydown(getText);
+textarea.keyup(getText);
 
 // Set the styles
 ctx.strokeStyle = '#000000';
