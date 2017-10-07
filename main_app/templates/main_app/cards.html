@@ -1,0 +1,46 @@
+{% extends 'main_app/base.html' %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" type="text/css" href="../../static/css/cards.css">
+{% endblock %}
+
+{% block content %}
+	<div class = "container">
+
+		<!-- The title of the page and instructions if the user has no sets -->
+		<div class = "row title">
+			<h1>My Collection</h1>
+			<p id = "empty-message">
+				It doesn't look like you've added any cards to your collection yet. 
+				<br>
+				To add cards to your collection, add cards from the Community, create your own cards or add cards from our official collection!
+			</p>
+			<p id = "no-account">
+				You need to have an account to create cards.
+			</p>
+		</div>
+		
+		<div class = "row card-display">
+			<!-- Dynamically fill this area with divs with the card -->
+			<!-- When you click on an image, use java script to create an area where you can see the number of likes it has, author etc. -->
+			<div class = "card-container col-lg-3">
+				<img class = "card-image" src="../../static/imgs/cards/1.png" width = 80%>
+			</div>
+
+			<div class = "card-container col-lg-3">
+				<img class = "card-image" src="../../static/imgs/cards/2.png" width = 80%>
+			</div>
+
+			<div class = "card-container col-lg-3">
+				<img class = "card-image" src="../../static/imgs/cards/3.png" width = 80%>
+			</div>
+
+			<div class = "card-container col-lg-3">
+				<img class = "card-image" src="../../static/imgs/cards/4.png" width = 80%>
+			</div>
+		</div>
+		
+	</div>
+	
+
+{% endblock %}

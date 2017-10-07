@@ -1,0 +1,37 @@
+body
+{
+	overflow:visible;
+}
+
+.container
+{
+	margin-top:50px;
+}
+
+.title
+{
+	
+}
+
+.card-display
+{
+	margin-top:25px;
+	text-align:center; /*Centers all the cards*/
+}
+
+.card-container
+{
+}
+
+.card-image
+{
+	border:2px solid green;
+	
+	cursor:pointer;
+}
+
+.card-image:hover
+{
+	border:2px solid black;
+	transition: 0.3s;
+}

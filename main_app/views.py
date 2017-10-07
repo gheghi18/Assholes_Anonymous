@@ -33,3 +33,9 @@ def createCard(request):
 
 def confirm(request):
 	return render(request,'main_app/confirm.html',{})
+
+def cards(request):
+	return render(request,'main_app/cards.html')
+
+def register(request):
+	return render(request,'main_app/register.html')
