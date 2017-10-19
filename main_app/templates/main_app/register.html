@@ -6,7 +6,19 @@
 	
 	
 {% block content %}
+	<!-- Highlight the button -->
+	<script type="text/javascript">
+		window.onload = function()
+		{
+			$("#register").addClass("active");
+		};
+	</script>
+
 	<div id = "container">
 		<h1>Welcome to the Registeration Page!</h1>
+
+		<form id = "registration-form" action = "" method="post">
+  			<button type="submit">Save changes</button>
+		</form>
 	</div>
 {% endblock %}

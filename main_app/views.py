@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.utils import timezone
 from django.http import HttpResponseRedirect
 from main_app.models import Card
-from .forms import CardForm
+from .forms import *
 
 #Whehter or not adding cards is currently allowed
 adding_cards = True
@@ -35,7 +35,13 @@ def confirm(request):
 	return render(request,'main_app/confirm.html',{})
 
 def cards(request):
-	return render(request,'main_app/cards.html')
+	return render(request,'main_app/cards.html',{})
 
 def register(request):
-	return render(request,'main_app/register.html')
+	if request.method == 'POST' : 	
+		pass
+
+	else : 
+		pass
+		
+	return render(request,'main_app/register.html',{})
