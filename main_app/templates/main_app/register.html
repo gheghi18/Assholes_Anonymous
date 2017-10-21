@@ -17,8 +17,10 @@
 	<div id = "container">
 		<h1>Welcome to the Registeration Page!</h1>
 
-		<form id = "registration-form" action = "" method="post">
-  			<button type="submit">Save changes</button>
+		<form id = "card-form" action = "" method="post">
+			{% csrf_token %}
+			{{ form }}
+			<input id = "submit-button" type="submit" value="Submit" />
 		</form>
 	</div>
 {% endblock %}

@@ -21,6 +21,11 @@ body
 	overflow: hidden;
 }
 
+input
+{
+	color:#1E7D1E
+}
+
 /*The heading and masthead*/
 
 /*Controls the entire masthead*/

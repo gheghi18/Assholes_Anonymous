@@ -7,7 +7,7 @@ from django.dispatch import receiver
 
 # A collection
 class Collection(models.Model) : 
-	author = models.ForeignKey(User,unique=True)
+	author = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
 	cards = {}
 
 	def publish(self) : 
@@ -26,7 +26,7 @@ class Collection(models.Model) :
 # The Card model which represents a user created card
 # Each card also has an implicit id value
 class Card(models.Model) : 
-	author = models.ForeignKey(User,unique=True)
+	author = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
 	text = models.CharField(max_length = 400)
 	created_date = models.DateTimeField(default=timezone.now)
 	published = False
@@ -39,3 +39,4 @@ class Card(models.Model) :
 
 	def __str__(self) : 
 		return self.text
+

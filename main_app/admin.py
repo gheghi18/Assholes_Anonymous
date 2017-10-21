@@ -4,3 +4,4 @@ from .models import Collection
 
 admin.site.register(Card)
 admin.site.register(Collection)
+

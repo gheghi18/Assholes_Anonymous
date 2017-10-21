@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.utils import timezone
 from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
 from main_app.models import Card
 from .forms import *
 
@@ -39,9 +40,16 @@ def cards(request):
 
 def register(request):
 	if request.method == 'POST' : 	
-		pass
+		form = RegistrationForm(request.POST)
+
+		if form.is_valid() : 
+			newUser = User.objects.create_user(first_name = request.POST['firstName'],last_name = request.POST['lastName'],
+				username = request.POST['username'],password = request.POST['password'], email = request.POST['email'])
+			newUser.save()
+
+		return HttpResponseRedirect('/confirm/')
 
 	else : 
-		pass
+		form = RegistrationForm()
 		
-	return render(request,'main_app/register.html',{})
+	return render(request,'main_app/register.html',{'form':form})
