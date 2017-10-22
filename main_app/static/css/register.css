@@ -1,4 +1,52 @@
 #container
 {
-	margin-top:100px;
+	margin-top:75px;
+	text-align:center;
+	font-size:25px;
+}
+
+#container #submit-button
+{
+	margin-top:25px;
+	display:block;
+	outline:none;
+	border:none;
+	font-size:35px;
+	font-weight:bold;
+	color:white;
+	border:3px solid var(--textColor);
+	background-color:var(--themeColor);
+}
+
+#container #submit-button:hover
+{
+	color:red;
+	transition:0.3s;
+	color:var(--themeColor);
+	background-color: var(--textColor);
+}
+
+/* A flex container used for centering content*/
+.center
+{
+	display:flex;
+	align-items: center;
+	justify-content: center;
+}
+
+h1
+{
+	margin-bottom:20px;
+}
+
+input
+{
+	width:400px;
+	display:block;
+	margin:auto auto 10px;
+}
+
+label
+{
+	display:block;
 }

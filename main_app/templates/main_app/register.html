@@ -15,12 +15,25 @@
 	</script>
 
 	<div id = "container">
-		<h1>Welcome to the Registeration Page!</h1>
+		<h1>Register to Create Fucking Awesome Cards!</h1>
 
-		<form id = "card-form" action = "" method="post">
-			{% csrf_token %}
-			{{ form }}
-			<input id = "submit-button" type="submit" value="Submit" />
-		</form>
+		<div class = "row">
+			<div class = "col-lg-4">
+				<img class = "card-image" src="../../static/imgs/cards/1.png" width = "70%">
+			</div>
+			<div class = "col-lg-4">
+				<form id = "card-form" action = "" method="post">
+					{% csrf_token %}
+					{{ form }}
+					<div class = "center">
+						<input id = "submit-button" type="submit" value="Submit" />
+					</div>
+				</form>
+			</div>
+			<div class = "col-lg-4">
+				<img class = "card-image" src="../../static/imgs/cards/2.png" width = "70%">
+			</div>
+		</div>
+		
 	</div>
 {% endblock %}
