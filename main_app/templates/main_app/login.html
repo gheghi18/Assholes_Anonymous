@@ -1,7 +1,7 @@
 {% extends 'main_app/base.html' %}
 
 {% block stylesheets %}
-	<link rel="stylesheet" type="text/css" href="../../static/css/register.css">
+	<link rel="stylesheet" type="text/css" href="../../static/css/login.css">
 {% endblock %}
 	
 	
@@ -10,18 +10,15 @@
 	<script type="text/javascript">
 		window.onload = function()
 		{
-			$("#register").addClass("active");
+			$("#login").addClass("active");
 		};
 	</script>
 
 	<div id = "container">
-		<h1>Register to Create Fucking Awesome Cards!</h1>
+		<h1>Login</h1>
 
 		<div class = "row">
-			<div class = "col-lg-4">
-				<img class = "card-image" src="../../static/imgs/cards/1.png" width = "70%">
-			</div>
-			<div class = "col-lg-4">
+			<div class = "col">
 				<form id = "login-form" action = "" method="post">
 					{% csrf_token %}
 					{{ form }}
@@ -30,10 +27,8 @@
 					</div>
 				</form>
 			</div>
-			<div class = "col-lg-4">
-				<img class = "card-image" src="../../static/imgs/cards/2.png" width = "70%">
-			</div>
 		</div>
-		
 	</div>
+
+	
 {% endblock %}

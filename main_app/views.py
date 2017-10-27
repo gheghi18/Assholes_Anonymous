@@ -53,3 +53,17 @@ def register(request):
 		form = RegistrationForm()
 		
 	return render(request,'main_app/register.html',{'form':form})
+
+def login(request):
+	if request.method == 'POST' : 
+		form = LoginForm(request.POST)
+
+		if form.is_valid() : 
+			pass
+
+		return HTTPResponseRedirect('/confirm/')
+
+	else : 
+		form = LoginForm()
+
+	return render(request,'main_app/login.html',{'form':form})
