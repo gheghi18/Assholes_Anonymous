@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.utils import timezone
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from main_app.models import Card
 from .forms import *
 
@@ -12,6 +14,7 @@ adding_cards = True
 def homepage(request):
 	return render(request, 'main_app/homepage.html',{})
 
+@login_required
 def createCard(request):
 	if request.method == 'POST' : 
 		form = CardForm(request.POST)
@@ -54,16 +57,26 @@ def register(request):
 		
 	return render(request,'main_app/register.html',{'form':form})
 
-def login(request):
+def userlogin(request):
 	if request.method == 'POST' : 
-		form = LoginForm(request.POST)
+		username = request.POST['username']
+		password = request.POST['password']
 
-		if form.is_valid() : 
-			pass
-
-		return HTTPResponseRedirect('/confirm/')
+		user = authenticate(request, username = username, password = password)
+		
+		if user is not None :
+			login(request,user)
+			print("Login Succsessful!")
+			return HttpResponseRedirect('/confirm/')
+		
+		else : 
+			print("Login Unsuccsessful")
 
 	else : 
 		form = LoginForm()
 
 	return render(request,'main_app/login.html',{'form':form})
+
+def userlogout(request) :
+	logout(request)
+	return HttpResponseRedirect('/confirm/')

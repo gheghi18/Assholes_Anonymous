@@ -70,12 +70,20 @@
 
 	            <!-- Navbar Menu -->
 	            <ul class="nav navbar-nav navbar-right col-lg-auto">
-	                <li>
-	                    <a id = "login" href="{% url 'login' %}">Login</a>
-	                </li>
-	                <li>
-	                    <a id = "register" href="{% url 'register' %}">Register</a>
-	                </li>
+	            	{% if user.is_authenticated == False %}
+		                <li>
+		                    <a id = "login" href="{% url 'login' %}">Login</a>
+		                </li>
+		                <li>
+		                    <a id = "register" href="{% url 'register' %}">Register</a>
+		                </li>
+		            {% endif %}
+
+		            {% if user.is_authenticated == True %}
+		            	<li>
+		                    <a id = "logout" href="{% url 'logout' %}">Logout</a>
+		                </li>
+		            {% endif %}
 	            </ul>
 	        </div>
 	    </div>
