@@ -57,7 +57,13 @@
 	                    <a href="#" id = "overviewButton">How Does It Work?</a>
 	                </li>
 	                <li>
-	                    <a id = "cards" href="{% url 'cards' %}">Cards</a>
+	                	{% if user.is_authenticated == False %}
+	                    	<a id = "cards" href="{% url 'cards' %}">Cards</a>
+	                    {% endif %}
+
+	                    {% if user.is_authenticated == True %}
+	                    	<a id = "cards" href="{% url 'cards' %}">My Cards</a>
+	                    {% endif %}
 	                </li>
 	               
 	                <li>

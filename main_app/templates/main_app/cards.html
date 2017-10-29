@@ -22,29 +22,28 @@
 				<br>
 				To add cards to your collection, add cards from the Community, create your own cards or add cards from our official collection!
 			</p>
-			<p id = "no-account">
-				You need to have an account to create cards.
-			</p>
+
+			{% if user.is_authenticated == False %}
+				<p id = "no-account">
+					You need to have an account to create cards.
+				</p>
+			{% endif %}
 		</div>
 		
 		<div class = "row card-display">
 			<!-- Dynamically fill this area with divs with the card -->
 			<!-- When you click on an image, use java script to create an area where you can see the number of likes it has, author etc. -->
-			<div class = "card-container col-lg-3">
+
+			{% for card in collection %}
+				<h1>{{ card }}</h1>
+			{% endfor %}
+			
+
+			<!-- <div class = "card-container col-lg-3">
 				<img class = "card-image" src="../../static/imgs/cards/1.png" width = 80%>
-			</div>
+			</div> -->
 
-			<div class = "card-container col-lg-3">
-				<img class = "card-image" src="../../static/imgs/cards/2.png" width = 80%>
-			</div>
-
-			<div class = "card-container col-lg-3">
-				<img class = "card-image" src="../../static/imgs/cards/3.png" width = 80%>
-			</div>
-
-			<div class = "card-container col-lg-3">
-				<img class = "card-image" src="../../static/imgs/cards/4.png" width = 80%>
-			</div>
+			
 		</div>
 		
 	</div>

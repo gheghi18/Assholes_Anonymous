@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from main_app.models import Card
+from main_app.models import Card,Collection
 from .forms import *
 
 #Whehter or not adding cards is currently allowed
@@ -39,7 +39,13 @@ def confirm(request):
 	return render(request,'main_app/confirm.html',{})
 
 def cards(request):
-	return render(request,'main_app/cards.html',{})
+	collection = getUserCollection(request)
+	if collection != None : 
+		print(collection)
+		return render(request,'main_app/cards.html',{'collection':collection})
+	
+	else : 
+		return render(request,'main_app/cards.html',{})
 
 def register(request):
 	if request.method == 'POST' : 	
@@ -49,6 +55,10 @@ def register(request):
 			newUser = User.objects.create_user(first_name = request.POST['firstName'],last_name = request.POST['lastName'],
 				username = request.POST['username'],password = request.POST['password'], email = request.POST['email'])
 			newUser.save()
+			userCollection = Collection.objects.create()
+			userCollection.author = newUser
+			userCollection.publish()
+
 
 		return HttpResponseRedirect('/confirm/')
 
@@ -71,6 +81,8 @@ def userlogin(request):
 		
 		else : 
 			print("Login Unsuccsessful")
+			form = LoginForm()
+			return render(request,'main_app/login.html',{'form':form})
 
 	else : 
 		form = LoginForm()
@@ -80,3 +92,9 @@ def userlogin(request):
 def userlogout(request) :
 	logout(request)
 	return HttpResponseRedirect('/confirm/')
+
+def getUserCollection(request) : 
+	if request.user is not None :
+		return Collection.objects.get(author = request.user).cards.all()
+	else :
+		return None

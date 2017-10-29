@@ -5,24 +5,6 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-# A collection
-class Collection(models.Model) : 
-	author = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
-	cards = {}
-
-	def publish(self) : 
-		self.save()
-
-	def addCard(card):
-		cards[len(cards)] = card
-
-	def removeCard(card):
-		pass
-
-	def moveCard(card):
-		pass
-
-
 # The Card model which represents a user created card
 # Each card also has an implicit id value
 class Card(models.Model) : 
@@ -39,4 +21,22 @@ class Card(models.Model) :
 
 	def __str__(self) : 
 		return self.text
+
+
+# A collection
+class Collection(models.Model) : 
+	author = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
+	cards = models.ManyToManyField(Card)
+
+	def publish(self) : 
+		self.save()
+
+	def removeCard(self,card):
+		pass
+
+	def moveCard(self,card):
+		pass
+
+
+
 
