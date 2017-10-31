@@ -19,8 +19,36 @@ body
 	text-align:center; /*Centers all the cards*/
 }
 
+/* The container of the card canvas */
 .card-container
 {
+	
+}
+
+/*The card canavs*/
+.card
+{
+
+}
+
+.card-container
+{
+	position:relative;
+}
+
+.dynamic-textarea
+{
+	resize:none;
+	position:absolute;
+	outline:none;
+	border:none;
+	background-color: rgba(0,0,0,0);
+	color:white;
+	left:68px;
+	top:15px;
+	width:200px;
+	font-size:18px;
+	font-weight:bold;
 }
 
 .card-image

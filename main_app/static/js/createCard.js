@@ -5,8 +5,6 @@ var dynamicText = $("#dynamic-textarea")[0];
 var ctx = canvas.getContext("2d");
 
 // Image dimensions
-var baseImageWidth = 709;
-var baseImageHeight = 1063;
 var width = canvas.width;
 var height = canvas.height;
 var x = 0;

@@ -35,7 +35,16 @@
 			<!-- When you click on an image, use java script to create an area where you can see the number of likes it has, author etc. -->
 
 			{% for card in collection %}
-				<h1>{{ card }}</h1>
+				<div class = "col-lg-3">
+					<div class = "center">
+						<div class = "card-container">
+							<input type="hidden" class = "card-text" name="variable" value = "{{ card.text }}">
+							<canvas class = "card" width = "200" height = "300"></canvas>
+							<textarea class = "dynamic-textarea" rows = "11" maxlength="185" readonly></textarea>
+						</div>
+					</div>
+					
+				</div>
 			{% endfor %}
 			
 
@@ -47,6 +56,13 @@
 		</div>
 		
 	</div>
+
+	<!-- Use the auto size imported script -->
+	<script type="text/javascript" src = "../../static/js/lib/autosize-master/dist/autosize.js"></script>
+	<script type="text/javascript">
+		
+	</script>
+	<script type="text/javascript" src = "../../static/js/DisplayCards.js"></script>
 	
 
 {% endblock %}

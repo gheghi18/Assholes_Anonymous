@@ -24,8 +24,10 @@ def createCard(request):
 			user = request.user
 			
 			if (adding_cards) : 
-				Card.objects.create(author = user,text = card_text)
-				
+				card = Card.objects.create(author = user,text = card_text)
+				card.publish()
+				Collection.objects.get(author = request.user).cards.add(card)
+				Collection.objects.get(author = request.user).save()
 				print("Card Added to Database!")
 
 			return HttpResponseRedirect('/confirm/')

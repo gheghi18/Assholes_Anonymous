@@ -8,7 +8,7 @@ from django.dispatch import receiver
 # The Card model which represents a user created card
 # Each card also has an implicit id value
 class Card(models.Model) : 
-	author = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
+	author = models.ForeignKey(User)
 	text = models.CharField(max_length = 400)
 	created_date = models.DateTimeField(default=timezone.now)
 	published = False
@@ -24,6 +24,7 @@ class Card(models.Model) :
 
 
 # A collection
+# There may be a problem with the one to one field
 class Collection(models.Model) : 
 	author = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
 	cards = models.ManyToManyField(Card)
