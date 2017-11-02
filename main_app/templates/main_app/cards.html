@@ -36,14 +36,14 @@
 
 			{% for card in collection %}
 				<div class = "col-lg-3">
-					<div class = "center">
-						<div class = "card-container">
-							<input type="hidden" class = "card-text" name="variable" value = "{{ card.text }}">
-							<canvas class = "card" width = "200" height = "300"></canvas>
-							<textarea class = "dynamic-textarea" rows = "11" maxlength="185" readonly></textarea>
-						</div>
+					<div class = "card-container">
+						<input type="hidden" class = "card-text" name="variable" value = "{{ card.text }}">
+						<canvas class = "card" width = "200" height = "300"></canvas>
+						<textarea class = "dynamic-textarea" rows = "11" maxlength="185" readonly></textarea>
+						<span class = "author">Author : <a class = "author-link" href="">{{card.author}}</a></span>
+						<button class = "add-button"><i class="fa fa-plus-circle plus" aria-hidden="true"></i></button>
 					</div>
-					
+				
 				</div>
 			{% endfor %}
 			

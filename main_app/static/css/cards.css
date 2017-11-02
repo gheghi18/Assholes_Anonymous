@@ -16,13 +16,11 @@ body
 .card-display
 {
 	margin-top:25px;
-	text-align:center; /*Centers all the cards*/
 }
 
-/* The container of the card canvas */
-.card-container
+.col-lg-3
 {
-	
+	position:relative;
 }
 
 /*The card canavs*/
@@ -33,7 +31,10 @@ body
 
 .card-container
 {
+	width:200px;
+	margin:0 auto;
 	position:relative;
+	margin-bottom:10px;
 }
 
 .dynamic-textarea
@@ -42,19 +43,60 @@ body
 	position:absolute;
 	outline:none;
 	border:none;
-	background-color: rgba(0,0,0,0);
+	cursor:pointer;
+	background-color:rgba(0,0,0,0);
 	color:white;
-	left:68px;
+	left:10px;
 	top:15px;
-	width:200px;
+	width:190px;
 	font-size:18px;
 	font-weight:bold;
+}
+
+.add-button
+{
+	background-color:rgba(0,0,0,0);
+	border:none;
+	position:absolute;
+	left:172px;
+	top:-7px;
+	transition: 0.4s;
+}
+
+.author
+{
+	font-weight:bold;
+	position:absolute;
+	left:5px;
+	top:275px;
+	text-decoration: none;
+}
+
+.author-link
+{
+	color:yellow;
+	transition:0.3s;
+}
+
+.plus
+{
+	font-size:30px;
 }
 
 .card-image
 {
 	border:2px solid green;
 	
+}
+
+.author-link:hover
+{
+	color:yellow;
+	text-decoration:none;
+}
+
+.dynamic-textarea:hover
+{
 	cursor:pointer;
 }
 
@@ -62,4 +104,9 @@ body
 {
 	border:2px solid black;
 	transition: 0.3s;
+}
+
+.add-button:hover
+{
+	transform:scale(1.4);
 }
