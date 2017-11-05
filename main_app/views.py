@@ -14,7 +14,7 @@ adding_cards = True
 def homepage(request):
 	return render(request, 'main_app/homepage.html',{})
 
-@login_required
+@login_required(login_url = "/login/")
 def createCard(request):
 	if request.method == 'POST' : 
 		form = CardForm(request.POST)
@@ -40,8 +40,13 @@ def createCard(request):
 def confirm(request):
 	return render(request,'main_app/confirm.html',{})
 
+@login_required(login_url = "/login/")
 def cards(request):
 	collection = getUserCollection(request)
+
+	if (len(collection) == 0) : 
+		collection = 0
+
 	if collection != None : 
 		print(collection)
 		return render(request,'main_app/cards.html',{'collection':collection})

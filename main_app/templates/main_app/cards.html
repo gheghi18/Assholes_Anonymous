@@ -17,44 +17,36 @@
 		<!-- The title of the page and instructions if the user has no sets -->
 		<div class = "row title">
 			<h1>My Collection</h1>
-			<p id = "empty-message">
-				It doesn't look like you've added any cards to your collection yet. 
-				<br>
-				To add cards to your collection, add cards from the Community, create your own cards or add cards from our official collection!
-			</p>
 
-			{% if user.is_authenticated == False %}
-				<p id = "no-account">
-					You need to have an account to create cards.
-				</p>
+			{% if collection == 0 %}
+				<div class = "center">
+					<p id = "empty-message">
+						It doesn't look like you've added any cards to your collection yet. 
+						To add cards to your collection, add cards from the Community, create your own cards, or add cards from our official collection!
+					</p>
+				</div>
 			{% endif %}
 		</div>
-		
+
 		<div class = "row card-display">
 			<!-- Dynamically fill this area with divs with the card -->
 			<!-- When you click on an image, use java script to create an area where you can see the number of likes it has, author etc. -->
 
-			{% for card in collection %}
-				<div class = "col-lg-3">
-					<div class = "card-container">
-						<input type="hidden" class = "card-text" name="variable" value = "{{ card.text }}">
-						<canvas class = "card" width = "200" height = "300"></canvas>
-						<textarea class = "dynamic-textarea" rows = "11" maxlength="185" readonly></textarea>
-						<span class = "author">Author : <a class = "author-link" href="">{{card.author}}</a></span>
-						<button class = "add-button"><i class="fa fa-plus-circle plus" aria-hidden="true"></i></button>
+			{% if collection != 0 %}
+				{% for card in collection %}
+					<div class = "col-lg-3">
+						<div class = "card-container">
+							<input type="hidden" class = "card-text" name="variable" value = "{{ card.text }}">
+							<canvas class = "card" width = "200" height = "300"></canvas>
+							<textarea class = "dynamic-textarea" rows = "11" maxlength="185" readonly></textarea>
+							<span class = "author">Author : <a class = "author-link" href="">{{card.author}}</a></span>
+							<button class = "add-button"><i class="fa fa-plus-circle plus" aria-hidden="true"></i></button>
+						</div>
+					
 					</div>
-				
-				</div>
-			{% endfor %}
-			
-
-			<!-- <div class = "card-container col-lg-3">
-				<img class = "card-image" src="../../static/imgs/cards/1.png" width = 80%>
-			</div> -->
-
-			
+				{% endfor %}
+			{% endif %}
 		</div>
-		
 	</div>
 
 	<!-- Use the auto size imported script -->

@@ -3,6 +3,14 @@ body
 	overflow:visible;
 }
 
+h1
+{
+	padding-bottom:3px;
+	display:inline-block;
+	font-size:35px;
+	border-bottom:3px solid white;
+}
+
 .container
 {
 	margin-top:50px;
@@ -10,7 +18,7 @@ body
 
 .title
 {
-	
+	text-align:center;
 }
 
 .card-display
@@ -43,7 +51,7 @@ body
 	position:absolute;
 	outline:none;
 	border:none;
-	cursor:pointer;
+	cursor:default;
 	background-color:rgba(0,0,0,0);
 	color:white;
 	left:10px;
@@ -89,6 +97,20 @@ body
 	
 }
 
+.center
+{
+	display:inline-block;
+	margin-top:100px;
+	margin-left:25%;
+	margin-right:25%;
+}
+
+#empty-message
+{
+	font-size:25px;
+	font-weight:bold;
+}
+
 .author-link:hover
 {
 	color:yellow;
@@ -97,7 +119,7 @@ body
 
 .dynamic-textarea:hover
 {
-	cursor:pointer;
+	cursor:default;
 }
 
 .card-image:hover
@@ -110,3 +132,5 @@ body
 {
 	transform:scale(1.4);
 }
+
+
