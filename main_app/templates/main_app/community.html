@@ -1,0 +1,42 @@
+{% extends 'main_app/base.html' %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" type="text/css" href="../../static/css/community.css">
+{% endblock %}
+
+{% block content %}
+	<!-- Highlight the button -->
+	<script type="text/javascript">
+		window.onload = function()
+		{
+			$("#community").addClass("active");
+		}
+	</script>
+
+	<div class = "container">
+		<div id = "title">
+		</div>
+		
+		<div id = "trend-cards">
+			<h2>Trending Cards!</h2>
+		</div>
+
+		<!-- The choice between the community and the official collections -->
+		<div class = "row options">
+			<div class = "col-lg-6 option-container" id = "community-collections">
+				<button class = "option-button">Official Collections</button>
+			</div>
+
+			<div class = "col-lg-6 option-container" id = "official-collections">
+				<button class = "option-button">Community Collections</button>
+			</div>
+		</div>
+
+		<!-- The official collection -->
+		<div id = "official-collection">
+			
+		</div>
+
+	</div>
+
+{% endblock %}

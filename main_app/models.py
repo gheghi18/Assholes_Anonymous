@@ -11,6 +11,7 @@ class Card(models.Model) :
 	author = models.ForeignKey(User)
 	text = models.CharField(max_length = 400)
 	created_date = models.DateTimeField(default=timezone.now)
+	likes = models.IntegerField()
 	published = False
 	published_date = models.DateTimeField(blank=True,null=True)
 

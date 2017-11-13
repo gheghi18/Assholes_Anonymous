@@ -54,6 +54,9 @@ def cards(request):
 	else : 
 		return render(request,'main_app/cards.html',{})
 
+def community(request) : 
+	return render(request,'main_app/community.html',{})
+
 def register(request):
 	if request.method == 'POST' : 	
 		form = RegistrationForm(request.POST)
