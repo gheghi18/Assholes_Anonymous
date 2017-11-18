@@ -27,7 +27,8 @@ class Card(models.Model) :
 # A collection
 # There may be a problem with the one to one field
 class Collection(models.Model) : 
-	author = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
+	title = models.CharField(max_length = 30)
+	author = models.ForeignKey(User)
 	cards = models.ManyToManyField(Card)
 
 	def publish(self) : 

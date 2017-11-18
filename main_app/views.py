@@ -57,6 +57,10 @@ def cards(request):
 def community(request) : 
 	return render(request,'main_app/community.html',{})
 
+def official_collection(request) : 
+	# You have to send in the official collection
+	return render(request,'main_app/official-collection.html',{})
+
 def register(request):
 	if request.method == 'POST' : 	
 		form = RegistrationForm(request.POST)

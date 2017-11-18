@@ -24,11 +24,13 @@
 		<!-- The choice between the community and the official collections -->
 		<div class = "row options">
 			<div class = "col-lg-6 option-container" id = "community-collections">
-				<button class = "option-button">Official Collections</button>
+				<form action = "{% url 'official_collection' %}">
+					<button class = "option-button">Official Collections</button>
+				</form>
 			</div>
 
 			<div class = "col-lg-6 option-container" id = "official-collections">
-				<button class = "option-button">Community Collections</button>
+				<button class = "option-button"><a href=""></a>Community Collections</button>
 			</div>
 		</div>
 

@@ -1,11 +1,12 @@
 .container
 {
-	margin-top:75px;
+	margin-top:50px;
 }
 
 #title
 {
-	
+	text-align:center;
+	font-weight:bold;
 }
 
 #trend-cards
