@@ -59,7 +59,8 @@ def community(request) :
 
 def official_collection(request) : 
 	# You have to send in the official collection
-	return render(request,'main_app/official-collection.html',{})
+	collection = Collection.objects.get(author = User.objects.get(username = "Assholes")).cards.all()
+	return render(request,'main_app/official-collection.html',{'collection':collection})
 
 def register(request):
 	if request.method == 'POST' : 	

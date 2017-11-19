@@ -2,6 +2,7 @@
 
 {% block stylesheets %}
 	<link rel="stylesheet" type="text/css" href="../../static/css/community.css">
+	<link rel="stylesheet" type="text/css" href="../../static/css/cards.css">
 {% endblock %}
 
 {% block content %}
@@ -11,9 +12,28 @@
 		</div>
 
 		<div id = "card-displayor">
-			
+			<div class = "row card-display">
+				{% for card in collection %}
+					<div class = "col-lg-3">
+						<div class = "card-container">
+							<input type="hidden" class = "card-text" name="variable" value = "{{ card.text }}">
+							<canvas class = "card" width = "200" height = "300"></canvas>
+							<textarea class = "dynamic-textarea" rows = "11" maxlength="185" readonly></textarea>
+							<span class = "author">Author : <a class = "author-link" href="">{{card.author}}</a></span>
+							<button class = "add-button"><i class="fa fa-plus-circle plus" aria-hidden="true"></i></button>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
 		</div>
 
 	</div>
+
+	<!-- Use the auto size imported script -->
+	<script type="text/javascript" src = "../../static/js/lib/autosize-master/dist/autosize.js"></script>
+	<script type="text/javascript">
+		
+	</script>
+	<script type="text/javascript" src = "../../static/js/DisplayCards.js"></script>
 
 {% endblock %}
