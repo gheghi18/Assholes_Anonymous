@@ -31,6 +31,9 @@ class Collection(models.Model) :
 	author = models.ForeignKey(User)
 	cards = models.ManyToManyField(Card)
 
+	def __str__(self) : 
+		return self.title
+
 	def publish(self) : 
 		self.save()
 
